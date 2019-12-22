@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #result {
+            text-align: center;
+        }
+        #result svg {
+            animation: fadeout 3s forwards;  
+            max-height: 50px;
+        }
+        @keyframes fadeout {
+            0% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <button id="start-button">認識開始</button>
+    <div id="result">
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
