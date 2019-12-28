@@ -1,0 +1,22 @@
+{
+  "name": "realtimecaption",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+  	"start": "static ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryohey/RealtimeCaption.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ryohey/RealtimeCaption/issues"
+  },
+  "homepage": "https://github.com/ryohey/RealtimeCaption#readme",
+  "dependencies": {
+    "node-static": "^0.7.11"
+  }
+}

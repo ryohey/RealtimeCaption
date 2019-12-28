@@ -15,6 +15,7 @@ recognition.onaudioend = () => {
 recognition.onend = () => {
   console.log("onend")
   startButton.style.visibility = "visible"
+  recognition.start()
 }
 
 recognition.onerror = ev => {
@@ -34,7 +35,7 @@ const options = {
     "dominant-baseline": "text-before-edge"
   },
   backgroundTextStyle: {
-    "stroke": "black",
+    "stroke": "red",
     "stroke-width": "7px",
     "stroke-linejoin": "round"
   },
@@ -110,8 +111,23 @@ const renderText = (text) => {
   svg.setAttribute("viewBox", `0 0 ${w} ${h}`)
 }
 
+const talkBack = (result) => {
+  const synthesis = window.speechSynthesis
+  const utter = new SpeechSynthesisUtterance(result)
+  const voices = synthesis.getVoices()
+  utter.voice = voices[0]
+  utter.volume = 1
+  utter.rate = 0.9
+  utter.pitch = 1.0
+  synthesis.speak(utter)
+}
+
 recognition.onresult = ev => {
-  renderText(getTextFromResults(ev.results))
+  const text = getTextFromResults(ev.results)
+  renderText(text)
+  if (ev.results[ev.results.length - 1].isFinal) {
+    talkBack(text)
+  }
 }
 
 recognition.onsoundstart = () => {
@@ -139,5 +155,4 @@ startButton.onclick = () => {
   recognition.start()
 }
 
-
-renderText("字幕サンプル")
+//renderText("字幕サンプル")
